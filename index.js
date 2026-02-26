@@ -32,12 +32,21 @@ function getRandomCard() {
 
 function startGame() {
 
-    renderGame()
     isAlive = true
+    hasBlackJack = false
+    message = ""
+
+    cards = []
+    sum = 0
+
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
-    let cards = [firstCard, secondCard]
-    let sum = firstCard + secondCard
+
+    cards.push(firstCard)
+    cards.push(secondCard)
+    sum = firstCard + secondCard
+
+    renderGame()
 }
 
 function renderGame() {
