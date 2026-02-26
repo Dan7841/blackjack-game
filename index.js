@@ -6,11 +6,18 @@ let message = ""
 let messageEl = document.getElementById("message-el")
 let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
+let dealerCardsEl = document.getElementById("dealer-cards-el")
+let dealerSumEl = document.getElementById("dealer-sum-el")
+
+let dealerCards = []
+let dealerSum = 0
 
 let player = {
     name: "Dan",
-    chips: 200
+    chips: 100
 }
+
+let bet = 10
 
 
 let playerEl = document.getElementById("player-el")
@@ -38,18 +45,42 @@ function startGame() {
 
     cards = []
     sum = 0
+    dealerCards = []
+    dealerSum = 0
 
+    //Player Cards
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
-
-    cards.push(firstCard)
-    cards.push(secondCard)
+    cards.push(firstCard, secondCard)
     sum = firstCard + secondCard
+
+    //Dealer Cards
+    let dealerFirstCard = getRandomCard()
+    let dealerSecondCard = getRandomCard()
+    dealerCards.push(dealerFirstCard, dealerSecondCard)
+    dealerSum = dealerFirstCard + dealerSecondCard
+
+    //Betting / Chips Deduction
+    if (player.chips >= bet) {
+        player.chips -= bet
+        playerEl.textContent = player.name + ": $" + player.chips
+    } else {
+        message = "Not enough chips!"
+        return
+    }
 
     renderGame()
 }
 
 function renderGame() {
+
+    dealerCardsEl.textContent = "Dealer Cards: "
+
+    for (let i = 0; i < dealerCards.length; i++) {
+        dealerCardsEl.textContent += dealerCards[i] + " "
+    }
+
+    dealerSumEl.textContent = "Dealer Sum: " + dealerSum
 
     cardsEl.textContent = "Cards: "
 
