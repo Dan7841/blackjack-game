@@ -3,15 +3,35 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>Blackjack</h1>
-        <p id="message-el">Want to play a round?</p>
-        <p id="dealer-cards-el">Dealer Cards:</p>
-        <p id="dealer-sum-el">Dealer Sum:</p>
-        <p id="cards-el">Cards:</p>
-        <p id="sum-el">Sum:</p>
-        <button onclick="startGame()">START GAME</button>
-        <button onclick="newCard()">NEW CARD</button>
-        <p id="player-el"></p>
-        <script src="index.js"></script>
+
+        <div class="game-container">
+            <h1>Blackjack</h1>
+            <p id="message-el">Want to play a round?</p>
+            <p id="dealer-cards-el">Dealer Cards:</p>
+            <p id="dealer-sum-el">Dealer Sum:</p>
+            <p id="cards-el">Cards:</p>
+            <p id="sum-el">Sum:</p>
+
+            <div class="game-buttons">
+
+                <div class="top-row">
+                    <button id="new-card-btn" onclick="newCard()">NEW CARD</button>
+                    <button id="stand-btn" onclick="dealersTurn()">STAND</button>
+                </div>
+                <div class="middle-row">
+                    <button id="start-game-btn" onclick="startGame()">START GAME</button>
+                </div>
+                <div class="bottom-row">
+                    <input id="bet-input" type="number" min="1" placeholder="Enter Bet Amount">
+                    <button id="set-bet-btn" onclick="setBet()">SET BET</button>
+                </div>
+
+            </div>
+
+            <p id="bet-display">Current Bet: $10</p>
+            <p id="player-el"></p>
+            <script src="index.js"></script>
+        </div>
+
     </body>
 </html>

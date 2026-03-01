@@ -9,6 +9,20 @@ body {
 
 h1 {
     color: goldenrod;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+#dealer-sum-el,
+#sum-el {
+    font-size: 1.2rem;
+}
+
+#player-el,
+#bet-display {
+    font-size: 1.3rem;
+    margin-top: 15px;
 }
 
 #message-el {
@@ -19,11 +33,64 @@ button {
     color: #016f32;
     width: 150px;
     background: goldenrod;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 8px 0;
     font-weight: bold;
     border: none;
-    border-radius: 2px;
-    margin-bottom: 2px;
-    margin-top: 2px;
+    border-radius: 0px;
+    margin: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 0 #b8860b;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #b8860b;
+}
+
+.game-container {
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 30px 40px;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.controls {
+    margin-top: 25px;
+}
+
+.top-row,
+.middle-row,
+.bottom-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    gap: 15px;
+}
+
+.bottom-row input {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    width: 160px;
+}
+
+.middle-row button {
+    width: 200px;
+}
+
+button:disabled {
+    background: #555;
+    color: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
